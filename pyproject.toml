@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "LD2410_vjsyong"
+version = "1.0.0"
+authors = [
+  { name="Vi Jun Sean Yong", email="vjsyong@connect.ust.hk" },
+]
+description = "A python interface for the HiLink LD2410 presence detection module"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/vjsyong/LD2410"
