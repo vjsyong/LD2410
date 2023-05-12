@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "LD2410"
-version = "1.0.5"
+version = "1.1"
 authors = [
   { name="Vi Jun Sean Yong", email="vjsyong@connect.ust.hk" },
 ]
