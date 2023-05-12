@@ -50,7 +50,6 @@ def main():
     # Restart the radar
     radar.restart_module()
 
-
     # Enable bluetooth (On by default, you don't have to call it)
     radar.bt_enable()
 
