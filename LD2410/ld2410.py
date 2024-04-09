@@ -190,13 +190,13 @@ class LD2410():
         if reconnect:
             logging.info("Baud rate set command issued. Calling restart.")
             # Restart the driver with the new baudrate
-            self.restart_module(BAUD_LOOKUP[baud_rate])
+            self.restart_module(baud_rate)
 
     def factory_reset(self, reconnect=True):
         logging.warning("Module will now be factory reset")
         self.send_command(CMD_FACTORY_RESET)
         if reconnect:
-            self.restart_module(BAUD_LOOKUP[PARAM_DEFAULT_BAUD])
+            self.restart_module(PARAM_DEFAULT_BAUD)
 
     def restart_module(self, new_baud=None):
         logging.info("Restarting module")
