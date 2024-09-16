@@ -124,9 +124,9 @@ class LD2410():
 
 
         # Movement Gate Sensitivities
-        move_sens = [int(byte) for byte in ret[REF_MOVING_GATE_SENS_0:REF_MOVING_GATE_SENS_8]]
+        move_sens = [int(byte) for byte in ret[REF_MOVING_GATE_SENS_0:REF_MOVING_GATE_SENS_8+1]]
         # Static Gate Sensitivities
-        static_sens = [int(byte) for byte in ret[REF_STATIC_GATE_SENS_0:REF_STATIC_GATE_SENS_8]]
+        static_sens = [int(byte) for byte in ret[REF_STATIC_GATE_SENS_0:REF_STATIC_GATE_SENS_8+1]]
         
         logging.debug(f"Thresholds:{thresholds}, Movement Sens:{move_sens}, Static Sens:{static_sens}")
         return thresholds, move_sens, static_sens
@@ -150,8 +150,9 @@ class LD2410():
         self.validate_range(gate, GATE_MIN, GATE_MAX+1)
         self.validate_range(moving_sens, SENS_MIN, SENS_MAX+1)
 
-        if gate == 1 or gate == 2:
-            logging.warning("You cannot set gate 1 or 2 static sensitivity to anything other than 0")
+        if gate == 0 or gate == 1:
+            if static_sens != 0:
+                logging.warning("You cannot set gate 0 or 1 static sensitivity to anything other than 0")
             self.validate_range(static_sens, 0, 1)
         else:
             self.validate_range(static_sens, SENS_MIN, SENS_MAX+1)
